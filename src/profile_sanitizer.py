@@ -43,8 +43,8 @@ def sanitize_profile(profile: Dict[str, Any]) -> Dict[str, Any]:
     is_valid = bool(username and is_valid_email and full_name)
 
     return {
-        "username": username,
-        "email": email,
-        "full_name": full_name,
+        "username": username.strip(),
+        "email": email.strip().lower(),
+        "full_name": full_name.strip().title(),
         "is_valid": is_valid
     }
