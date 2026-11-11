@@ -32,19 +32,19 @@ def sanitize_profile(profile: Dict[str, Any]) -> Dict[str, Any]:
         raise TypeError("username, email, and full_name must be strings.")
 
     # Format and clean strings
-    username.strip()
-    email.strip()
-    email.lower()
-    full_name.strip()
-    full_name.title()
+    username =username.strip()
+    email = email.strip()
+    email = email.lower()
+    full_name = full_name.strip()
+    full_name = full_name.title()
 
     # Basic email validity check
     is_valid_email = "@" in email and "." in email.split("@")[-1]
     is_valid = bool(username and is_valid_email and full_name)
 
     return {
-        "username": username.strip(),
-        "email": email.strip().lower(),
-        "full_name": full_name.strip().title(),
+        "username": username,
+        "email": email,
+        "full_name": full_name,
         "is_valid": is_valid
     }
